@@ -2,8 +2,13 @@
 	<div class="flex flex-col">
 		<NForm>
 			<NFormItem v-for="(item, index) in props.items" :key="index" :label="item.label">
-				<NInput v-if="item.type === 'input'" v-model:value="model[item.modelKey]" />
-				<NSelect v-else-if="item.type === 'select'" v-model:value="model[item.modelKey]" :options="item.options" />
+				<NInput v-if="item.type === 'input'" v-model:value="model[item.modelKey]" v-bind="item.props" />
+				<NSelect
+					v-else-if="item.type === 'select'"
+					v-model:value="model[item.modelKey]"
+					:options="item.options"
+					v-bind="item.props"
+				/>
 			</NFormItem>
 		</NForm>
 	</div>

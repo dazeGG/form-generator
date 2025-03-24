@@ -26,6 +26,9 @@ const formItems: FormItem[] = [
 		label: 'Age',
 		modelKey: 'age',
 		options: [...Array(100).keys()].map(i => ({ label: i.toString(), value: i })),
+		props: {
+			clearable: true,
+		},
 	},
 ]
 </script>
