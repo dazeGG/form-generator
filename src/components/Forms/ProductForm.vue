@@ -24,7 +24,7 @@ const formItems = computed<FormItem[]>(() => [
 	{
 		type: 'input',
 		label: 'Title',
-		modelKey: 'title',
+		key: 'title',
 		props: {
 			clearable: true,
 		},
@@ -32,12 +32,12 @@ const formItems = computed<FormItem[]>(() => [
 	{
 		type: 'textarea',
 		label: 'Description',
-		modelKey: 'description',
+		key: 'description',
 	},
 	{
 		type: 'input',
 		label: 'Price',
-		modelKey: 'price',
+		key: 'price',
 		props: {
 			clearable: true,
 		},
@@ -45,13 +45,13 @@ const formItems = computed<FormItem[]>(() => [
 	{
 		type: 'checkbox',
 		label: 'Discount',
-		modelKey: 'discount',
+		key: 'discount',
 	},
 	{
 		show: data.value.discount,
 		type: 'input',
 		label: 'Discounted price',
-		modelKey: 'discountedPrice',
+		key: 'discountedPrice',
 		props: {
 			clearable: true,
 		},

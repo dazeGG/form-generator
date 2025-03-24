@@ -7,22 +7,22 @@
 				:label="item.label"
 				:show-label="item.type !== 'checkbox'"
 			>
-				<NInput v-if="item.type === 'input'" v-model:value="model[item.modelKey]" v-bind="item.props" />
+				<NInput v-if="item.type === 'input'" v-model:value="model[item.key]" v-bind="item.props" />
 				<NSelect
 					v-else-if="item.type === 'select'"
-					v-model:value="model[item.modelKey]"
+					v-model:value="model[item.key]"
 					:options="item.options"
 					v-bind="item.props"
 				/>
 				<NCheckbox
 					v-else-if="item.type === 'checkbox'"
-					v-model:checked="model[item.modelKey]"
+					v-model:checked="model[item.key]"
 					:label="item.label"
 					v-bind="item.props"
 				/>
 				<NInput
 					v-else-if="item.type === 'textarea'"
-					v-model:value="model[item.modelKey]"
+					v-model:value="model[item.key]"
 					type="textarea"
 					:autosize="{
 						minRows: 4,

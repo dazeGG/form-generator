@@ -2,7 +2,7 @@ import type { InputProps, SelectOption, SelectProps, CheckboxProps } from 'naive
 
 interface BaseFormItem {
 	label: string
-	modelKey: string
+	key: string
 	show?: boolean
 }
 

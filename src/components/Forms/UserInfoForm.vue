@@ -17,7 +17,7 @@ const formItems: FormItem[] = [
 	{
 		type: 'input',
 		label: 'Name',
-		modelKey: 'name',
+		key: 'name',
 		props: {
 			clearable: true,
 		},
@@ -25,7 +25,7 @@ const formItems: FormItem[] = [
 	{
 		type: 'select',
 		label: 'Age',
-		modelKey: 'age',
+		key: 'age',
 		options: [...Array(100).keys()].map(i => ({ label: i.toString(), value: i })),
 		props: {
 			clearable: true,
@@ -34,7 +34,7 @@ const formItems: FormItem[] = [
 	{
 		type: 'textarea',
 		label: 'Some info',
-		modelKey: 'info',
+		key: 'info',
 	},
 ]
 </script>
