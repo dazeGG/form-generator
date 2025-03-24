@@ -21,7 +21,7 @@ interface FormItemCheckbox extends BaseFormItem {
 	props?: CheckboxProps
 }
 
-interface FormItemTextarea extends BaseFormItem {
+interface FormItemTextarea extends Omit<FormItemInput, 'type'> {
 	type: 'textarea'
 }
 

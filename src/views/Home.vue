@@ -13,7 +13,7 @@ import Form from '@/components/Form.vue'
 
 import type { FormItem } from '@/types/form'
 
-const data = ref<Record<string, string | number | boolean | null>>({ name: null, age: null, married: false })
+const data = ref<Record<string, any>>({ name: null, age: null, married: false, info: null })
 
 const formItems: FormItem[] = [
 	{
@@ -37,6 +37,11 @@ const formItems: FormItem[] = [
 		type: 'checkbox',
 		label: 'Married',
 		modelKey: 'married',
+	},
+	{
+		type: 'textarea',
+		label: 'Some info',
+		modelKey: 'info',
 	},
 ]
 </script>

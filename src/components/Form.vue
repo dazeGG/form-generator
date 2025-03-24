@@ -20,6 +20,16 @@
 					:label="item.label"
 					v-bind="item.props"
 				/>
+				<NInput
+					v-else-if="item.type === 'textarea'"
+					v-model:value="model[item.modelKey]"
+					type="textarea"
+					:autosize="{
+						minRows: 4,
+						maxRows: 8,
+					}"
+					v-bind="item.props"
+				/>
 			</NFormItem>
 		</NForm>
 	</div>
