@@ -1,47 +1,47 @@
 <template>
-	<NCard>
-		<h1>Home page</h1>
-		<Form v-model:model="data" class="mt-8" :items="formItems" />
-	</NCard>
+	<Page>
+		<template #header>
+			<h1>Home page</h1>
+		</template>
+		<template #default>
+			<h4>Some forms</h4>
+			<div class="flex mt-2">
+				<NButton
+					v-for="(formLink, index) in formLinks"
+					:key="index"
+					:type="formLink.type"
+					round
+					@click="routeTo(formLink.to)"
+				>
+					{{ formLink.text }}
+				</NButton>
+			</div>
+		</template>
+	</Page>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
-import { NCard } from 'naive-ui'
-import Form from '@/components/Form.vue'
+import { NButton } from 'naive-ui'
+import Page from '@/components/base/Page.vue'
 
-import type { FormItem } from '@/types/form'
+import type { RouteLocationRaw } from 'vue-router'
+import type { Type } from 'naive-ui/es/button/src/interface'
 
-const data = ref<Record<string, any>>({ name: null, age: null, married: false, info: null })
+const router = useRouter()
 
-const formItems: FormItem[] = [
+const formLinks: { text: string; type: Type; to: RouteLocationRaw }[] = [
 	{
-		type: 'input',
-		label: 'Name',
-		modelKey: 'name',
-		props: {
-			clearable: true,
+		text: 'User form',
+		type: 'primary',
+		to: {
+			name: 'user',
 		},
-	},
-	{
-		type: 'select',
-		label: 'Age',
-		modelKey: 'age',
-		options: [...Array(100).keys()].map(i => ({ label: i.toString(), value: i })),
-		props: {
-			clearable: true,
-		},
-	},
-	{
-		type: 'checkbox',
-		label: 'Married',
-		modelKey: 'married',
-	},
-	{
-		type: 'textarea',
-		label: 'Some info',
-		modelKey: 'info',
 	},
 ]
+
+const routeTo = (to: RouteLocationRaw): void => {
+	router.push(to)
+}
 </script>
