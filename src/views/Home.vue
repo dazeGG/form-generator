@@ -1,22 +1,17 @@
 <template>
-	<Page>
-		<template #header>
-			<h1>Home page</h1>
-		</template>
-		<template #default>
-			<h4>Some forms</h4>
-			<div class="flex mt-2">
-				<NButton
-					v-for="(formLink, index) in formLinks"
-					:key="index"
-					:type="formLink.type"
-					round
-					@click="routeTo(formLink.to)"
-				>
-					{{ formLink.text }}
-				</NButton>
-			</div>
-		</template>
+	<Page title="Home page">
+		<h4>Some forms</h4>
+		<div class="flex mt-2">
+			<NButton
+				v-for="(formLink, index) in formLinks"
+				:key="index"
+				:type="formLink.type"
+				round
+				@click="routeTo(formLink.to)"
+			>
+				{{ formLink.text }}
+			</NButton>
+		</div>
 	</Page>
 </template>
 

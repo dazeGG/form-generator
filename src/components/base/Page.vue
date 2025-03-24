@@ -1,11 +1,17 @@
 <template>
-	<NCard>
-		<slot name="header"></slot>
+	<div>
+		<slot name="header">
+			<h1>{{ props.title }}</h1>
+		</slot>
 		<NDivider />
 		<slot></slot>
-	</NCard>
+	</div>
 </template>
 
 <script setup lang="ts">
-import { NCard, NDivider } from 'naive-ui'
+import { NDivider } from 'naive-ui'
+
+const props = defineProps<{
+	title?: string
+}>()
 </script>
