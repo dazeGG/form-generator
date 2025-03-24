@@ -1,7 +1,7 @@
 <template>
 	<Page title="Home page">
 		<h4>Some forms</h4>
-		<div class="flex mt-2">
+		<div class="flex gap-2 mt-2">
 			<NButton
 				v-for="(formLink, index) in formLinks"
 				:key="index"
@@ -32,6 +32,13 @@ const formLinks: { text: string; type: Type; to: RouteLocationRaw }[] = [
 		type: 'primary',
 		to: {
 			name: 'user',
+		},
+	},
+	{
+		text: 'Product form',
+		type: 'info',
+		to: {
+			name: 'product',
 		},
 	},
 ]
