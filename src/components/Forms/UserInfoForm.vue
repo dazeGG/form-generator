@@ -9,7 +9,7 @@ import Form from '@/components/base/Form.vue'
 
 import type { FormItem } from '@/types/form'
 
-const emptyData: Record<string, any> = { name: null, age: null, married: false, info: null }
+const emptyData: Record<string, any> = { name: null, age: null, info: null }
 
 const { data, clearData, saveData } = useForm('product', emptyData)
 
@@ -30,11 +30,6 @@ const formItems: FormItem[] = [
 		props: {
 			clearable: true,
 		},
-	},
-	{
-		type: 'checkbox',
-		label: 'Married',
-		modelKey: 'married',
 	},
 	{
 		type: 'textarea',
