@@ -4,10 +4,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useFormsStore } from '@/store'
 
 import Form from '@/components/base/Form.vue'
 
 import type { FormItem } from '@/types/form'
+
+const formsStore = useFormsStore()
 
 const data = ref<Record<string, any>>({ name: null, age: null, married: false, info: null })
 
@@ -40,4 +43,14 @@ const formItems: FormItem[] = [
 		modelKey: 'info',
 	},
 ]
+
+const onCreated = () => {
+	const savedData = formsStore.get('user')
+
+	if (savedData) {
+		data.value = savedData
+	}
+}
+
+onCreated()
 </script>
