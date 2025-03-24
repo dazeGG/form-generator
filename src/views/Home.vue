@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="flex flex-col gap-4">
 		<h1>Home page</h1>
 		<NButton type="primary" round>Test button</NButton>
 	</div>
