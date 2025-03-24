@@ -1,4 +1,4 @@
-import type { InputProps, SelectOption, SelectProps } from 'naive-ui'
+import type { InputProps, SelectOption, SelectProps, CheckboxProps } from 'naive-ui'
 
 interface BaseFormItem {
 	label: string
@@ -18,6 +18,7 @@ interface FormItemSelect extends BaseFormItem {
 
 interface FormItemCheckbox extends BaseFormItem {
 	type: 'checkbox'
+	props?: CheckboxProps
 }
 
 interface FormItemTextarea extends BaseFormItem {
