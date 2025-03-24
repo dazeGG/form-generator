@@ -3,6 +3,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useFormsStore } from '@/store'
 import { useForm } from '@/composables'
 
@@ -10,12 +11,18 @@ import Form from '@/components/base/Form.vue'
 
 import type { FormItem } from '@/types/form'
 
-const emptyData: Record<string, any> = { title: null, price: null, sale: false, description: null }
+const emptyData: Record<string, any> = {
+	title: null,
+	price: null,
+	discount: false,
+	discountedPrice: null,
+	description: null,
+}
 
 const formsStore = useFormsStore()
 const { data, clearData, saveData } = useForm('product', emptyData)
 
-const formItems: FormItem[] = [
+const formItems = computed<FormItem[]>(() => [
 	{
 		type: 'input',
 		label: 'Title',
@@ -34,15 +41,24 @@ const formItems: FormItem[] = [
 	},
 	{
 		type: 'checkbox',
-		label: 'Sale',
-		modelKey: 'sale',
+		label: 'Discount',
+		modelKey: 'discount',
+	},
+	{
+		show: data.value.discount,
+		type: 'input',
+		label: 'Discounted price',
+		modelKey: 'discountedPrice',
+		props: {
+			clearable: true,
+		},
 	},
 	{
 		type: 'textarea',
 		label: 'Description',
 		modelKey: 'description',
 	},
-]
+])
 
 const initData = (): void => {
 	const savedData = formsStore.get('user')
