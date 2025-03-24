@@ -2,7 +2,8 @@ import type { InputProps, SelectOption, SelectProps, CheckboxProps } from 'naive
 
 interface BaseFormItem {
 	label: string
-	modelKey: string
+	key: string
+	show?: boolean
 }
 
 interface FormItemInput extends BaseFormItem {
@@ -25,4 +26,8 @@ interface FormItemTextarea extends Omit<FormItemInput, 'type'> {
 	type: 'textarea'
 }
 
-export type FormItem = FormItemInput | FormItemSelect | FormItemCheckbox | FormItemTextarea;
+interface FormItemSlot extends BaseFormItem {
+	type: 'slot'
+}
+
+export type FormItem = FormItemInput | FormItemSelect | FormItemCheckbox | FormItemTextarea | FormItemSlot;
