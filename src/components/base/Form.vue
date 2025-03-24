@@ -2,7 +2,7 @@
 	<div class="flex flex-col">
 		<NForm>
 			<NFormItem
-				v-for="(item, index) in props.items"
+				v-for="(item, index) in itemsToShow"
 				:key="index"
 				:label="item.label"
 				:show-label="item.type !== 'checkbox'"
@@ -40,6 +40,8 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+
 import { NForm, NFormItem, NInput, NSelect, NCheckbox, NButton } from 'naive-ui'
 
 import type { FormItem } from '@/types/form'
@@ -54,6 +56,8 @@ const emit = defineEmits<{
 const props = defineProps<{
 	items: FormItem[]
 }>()
+
+const itemsToShow = computed<FormItem[]>(() => props.items.filter(item => item.show !== false))
 
 const onClickClear = (): void => {
 	emit('clear')
