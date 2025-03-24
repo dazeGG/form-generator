@@ -26,4 +26,8 @@ interface FormItemTextarea extends Omit<FormItemInput, 'type'> {
 	type: 'textarea'
 }
 
-export type FormItem = FormItemInput | FormItemSelect | FormItemCheckbox | FormItemTextarea;
+interface FormItemSlot extends BaseFormItem {
+	type: 'slot'
+}
+
+export type FormItem = FormItemInput | FormItemSelect | FormItemCheckbox | FormItemTextarea | FormItemSlot;
