@@ -26,12 +26,12 @@ import { useRouter } from 'vue-router'
 import { NButton } from 'naive-ui'
 import Page from '@/components/base/Page.vue'
 
-import type { RouteRecordInfo } from 'vue-router'
+import type { RouteLocationRaw } from 'vue-router'
 import type { Type } from 'naive-ui/es/button/src/interface'
 
 const router = useRouter()
 
-const formLinks: { text: string; type: Type; to: RouteRecordInfo }[] = [
+const formLinks: { text: string; type: Type; to: RouteLocationRaw }[] = [
 	{
 		text: 'User form',
 		type: 'primary',
@@ -41,7 +41,7 @@ const formLinks: { text: string; type: Type; to: RouteRecordInfo }[] = [
 	},
 ]
 
-const routeTo = (to: RouteRecordInfo): void => {
+const routeTo = (to: RouteLocationRaw): void => {
 	router.push(to)
 }
 </script>
