@@ -41,6 +41,13 @@ const formLinks: { text: string; type: Type; to: RouteLocationRaw }[] = [
 			name: 'product',
 		},
 	},
+	{
+		text: 'Multiple types form',
+		type: 'warning',
+		to: {
+			name: 'multipleTypes',
+		},
+	},
 ]
 
 const routeTo = (to: RouteLocationRaw): void => {

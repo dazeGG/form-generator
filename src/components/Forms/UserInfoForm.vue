@@ -11,7 +11,7 @@ import type { FormItem } from '@/types/form'
 
 const emptyData: Record<string, any> = { name: null, age: null, info: null }
 
-const { data, clearData, saveData } = useForm('product', emptyData)
+const { data, clearData, saveData } = useForm('user', emptyData)
 
 const formItems: FormItem[] = [
 	{

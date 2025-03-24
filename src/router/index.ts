@@ -16,6 +16,11 @@ const routes = [
 		name: 'product',
 		component: () => import('@/views/Product.vue'),
 	},
+	{
+		path: '/multiple-types',
+		name: 'multipleTypes',
+		component: () => import('@/views/MultipleTypes.vue'),
+	},
 ]
 
 const router = createRouter({
