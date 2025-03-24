@@ -1,9 +1,10 @@
 <template>
-	<Form v-model:model="data" class="mt-8" :items="formItems" />
+	<Form v-model:model="data" class="mt-8" :items="formItems" @clear="clearData" @save="saveData" />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { cloneDeep } from 'lodash'
 import { useFormsStore } from '@/store'
 
 import Form from '@/components/base/Form.vue'
@@ -12,7 +13,13 @@ import type { FormItem } from '@/types/form'
 
 const formsStore = useFormsStore()
 
-const data = ref<Record<string, any>>({ name: null, age: null, married: false, info: null })
+const emptyData: Record<string, any> = { name: null, age: null, married: false, info: null }
+
+const data = ref<Record<string, any>>({})
+
+const clearData = (): void => {
+	data.value = cloneDeep(emptyData)
+}
 
 const formItems: FormItem[] = [
 	{
@@ -44,12 +51,22 @@ const formItems: FormItem[] = [
 	},
 ]
 
-const onCreated = () => {
+const initData = (): void => {
 	const savedData = formsStore.get('user')
 
 	if (savedData) {
 		data.value = savedData
+	} else {
+		clearData()
 	}
+}
+
+const saveData = (): void => {
+	formsStore.save('user', data.value)
+}
+
+const onCreated = (): void => {
+	initData()
 }
 
 onCreated()
