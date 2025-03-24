@@ -32,6 +32,11 @@ const formItems = computed<FormItem[]>(() => [
 		},
 	},
 	{
+		type: 'textarea',
+		label: 'Description',
+		modelKey: 'description',
+	},
+	{
 		type: 'input',
 		label: 'Price',
 		modelKey: 'price',
@@ -52,11 +57,6 @@ const formItems = computed<FormItem[]>(() => [
 		props: {
 			clearable: true,
 		},
-	},
-	{
-		type: 'textarea',
-		label: 'Description',
-		modelKey: 'description',
 	},
 ])
 
