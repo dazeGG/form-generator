@@ -1,5 +1,5 @@
 <template>
-	<Form v-model:model="data" class="mt-8" :items="formItems" @clear="clearData" @save="saveData" />
+	<Form v-model:model="data" :items="formItems" @clear="clearData" @save="saveData" />
 </template>
 
 <script setup lang="ts">
