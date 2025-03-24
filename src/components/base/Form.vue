@@ -32,17 +32,34 @@
 				/>
 			</NFormItem>
 		</NForm>
+		<div class="flex gap-2 justify-end">
+			<NButton round secondary @click="onClickClear">Clear</NButton>
+			<NButton round type="success" @click="onClickSave">Save</NButton>
+		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { NForm, NFormItem, NInput, NSelect, NCheckbox } from 'naive-ui'
+import { NForm, NFormItem, NInput, NSelect, NCheckbox, NButton } from 'naive-ui'
 
 import type { FormItem } from '@/types/form'
 
 const model = defineModel<Record<string, any>>('model', { required: true })
 
+const emit = defineEmits<{
+	(e: 'clear'): void
+	(e: 'save'): void
+}>()
+
 const props = defineProps<{
 	items: FormItem[]
 }>()
+
+const onClickClear = (): void => {
+	emit('clear')
+}
+
+const onClickSave = (): void => {
+	emit('save')
+}
 </script>
