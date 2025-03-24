@@ -1,11 +1,6 @@
 <template>
-	<Page>
-		<template #header>
-			<h1>User form</h1>
-		</template>
-		<template #default>
-			<UserInfoForm />
-		</template>
+	<Page title="User form">
+		<UserInfoForm />
 	</Page>
 </template>
 
