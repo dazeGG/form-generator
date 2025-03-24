@@ -3,7 +3,6 @@
 </template>
 
 <script setup lang="ts">
-import { useFormsStore } from '@/store'
 import { useForm } from '@/composables'
 
 import Form from '@/components/base/Form.vue'
@@ -12,7 +11,6 @@ import type { FormItem } from '@/types/form'
 
 const emptyData: Record<string, any> = { name: null, age: null, married: false, info: null }
 
-const formsStore = useFormsStore()
 const { data, clearData, saveData } = useForm('product', emptyData)
 
 const formItems: FormItem[] = [
@@ -44,20 +42,4 @@ const formItems: FormItem[] = [
 		modelKey: 'info',
 	},
 ]
-
-const initData = (): void => {
-	const savedData = formsStore.get('user')
-
-	if (savedData) {
-		data.value = savedData
-	} else {
-		clearData()
-	}
-}
-
-const onCreated = (): void => {
-	initData()
-}
-
-onCreated()
 </script>

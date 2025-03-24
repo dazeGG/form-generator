@@ -4,7 +4,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useFormsStore } from '@/store'
 import { useForm } from '@/composables'
 
 import Form from '@/components/base/Form.vue'
@@ -19,7 +18,6 @@ const emptyData: Record<string, any> = {
 	description: null,
 }
 
-const formsStore = useFormsStore()
 const { data, clearData, saveData } = useForm('product', emptyData)
 
 const formItems = computed<FormItem[]>(() => [
@@ -59,20 +57,4 @@ const formItems = computed<FormItem[]>(() => [
 		},
 	},
 ])
-
-const initData = (): void => {
-	const savedData = formsStore.get('user')
-
-	if (savedData) {
-		data.value = savedData
-	} else {
-		clearData()
-	}
-}
-
-const onCreated = (): void => {
-	initData()
-}
-
-onCreated()
 </script>
